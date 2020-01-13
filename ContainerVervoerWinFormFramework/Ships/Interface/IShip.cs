@@ -8,11 +8,11 @@ namespace ContainerVervoerWinFormFramework.Ships.Interface
 {
     public interface IShip
     {
-        IEnumerable<IEnumerable<ISlot>> Grid { get; set; }
-        int Width { get;}
-        int Height { get; }
+        ISlot[,] Grid { get; }
+        int Width { get; }
+        int Length { get; }
         int MaxCapacity { get; }
-        IList<IContainer> Containers { get;  }
+        IList<IContainer> Containers { get; }
 
     }
 }

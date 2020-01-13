@@ -2,8 +2,8 @@
 {
     public enum ContainerType
     {
-        Valuable,
         Cooled,
-        Normal
+        Normal,
+        Valuable
     }
 }

@@ -7,18 +7,25 @@ namespace ContainerVervoerWinForm.Ships.Slots
 {
     public class Slot : ISlot
     {
-        private const int _slotWeight = 15000;
-        public IList<IContainer> Containers { get; private set; }
+
+        public IList<IContainer> Stack { get; private set; }
 
         public IContainer ValuableContainer { get; private set; }
 
-        public bool IsEmpty { get { return Containers.Count == 0; } }
-
-        public int TotalWeight { get { return _slotWeight; } }
-
+        public bool IsEmpty { get { return Stack.Count == 0; } }
+        public int StackWeight => CalculateStackWeight();
         public Slot(List<IContainer> containers)
         {
-            Containers = containers;
+            Stack = containers;
+        }
+        private int CalculateStackWeight()
+        {
+            int weight = 0;
+            foreach (IContainer container in Stack)
+            {
+                weight += container.Weight;
+            }
+            return weight;
         }
 
     }

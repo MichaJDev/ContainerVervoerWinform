@@ -2,10 +2,12 @@
 using ContainerVervoerWinFormFramework.Ships.Interface;
 using System.Collections.Generic;
 
-namespace ContainerVervoerWinFormFramework.Ships.ContainerDistributor.Interface
+namespace ContainerVervoerWinFormFramework.ContainerDistributors.Interface
 {
     public interface IContainerDistributor
     {
         bool Distribute();
+        int LeftSideWeight { get; }
+        int RightSideWeight { get; }
     }
 }

@@ -6,9 +6,9 @@ namespace ContainerVervoerWinFormFramework.Ships.Slots.Interface
 {
     public interface ISlot
     {
-        IList<IContainer> Containers { get; }
+        IList<IContainer> Stack { get; }
         IContainer ValuableContainer { get; }
         bool IsEmpty { get; }
-        int TotalWeight { get;  }
+        int StackWeight { get; }
     }
 }
