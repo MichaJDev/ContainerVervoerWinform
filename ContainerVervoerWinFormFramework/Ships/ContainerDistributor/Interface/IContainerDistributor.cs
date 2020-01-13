@@ -6,6 +6,6 @@ namespace ContainerVervoerWinFormFramework.Ships.ContainerDistributor.Interface
 {
     public interface IContainerDistributor
     {
-        void Distrobute(IShip ship, IList<IContainer> containers);
+        bool Distribute();
     }
 }

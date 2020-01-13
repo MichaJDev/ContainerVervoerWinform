@@ -78,7 +78,7 @@
             // 
             this.shipWidthTb.Location = new System.Drawing.Point(111, 47);
             this.shipWidthTb.Name = "shipWidthTb";
-            this.shipWidthTb.Size = new System.Drawing.Size(31, 20);
+            this.shipWidthTb.Size = new System.Drawing.Size(72, 20);
             this.shipWidthTb.TabIndex = 3;
             this.shipWidthTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceNumeral);
             // 
@@ -86,7 +86,7 @@
             // 
             this.shipHeightTb.Location = new System.Drawing.Point(111, 73);
             this.shipHeightTb.Name = "shipHeightTb";
-            this.shipHeightTb.Size = new System.Drawing.Size(31, 20);
+            this.shipHeightTb.Size = new System.Drawing.Size(72, 20);
             this.shipHeightTb.TabIndex = 4;
             this.shipHeightTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ForceNumeral);
             // 
@@ -170,7 +170,7 @@
             // 
             this.maxCapacityTb.Location = new System.Drawing.Point(111, 99);
             this.maxCapacityTb.Name = "maxCapacityTb";
-            this.maxCapacityTb.Size = new System.Drawing.Size(31, 20);
+            this.maxCapacityTb.Size = new System.Drawing.Size(72, 20);
             this.maxCapacityTb.TabIndex = 13;
             // 
             // label6

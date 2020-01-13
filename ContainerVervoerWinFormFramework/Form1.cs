@@ -4,21 +4,27 @@ using System.Windows.Forms;
 using ContainerVervoerWinFormFramework.Ships.Interface;
 using ContainerVervoerWinFormFramework.Ships;
 using ContainerVervoerWinFormFramework.Ships.Containers.Interface;
-using ContainerVervoerWinFormFramework.Managers.Interface;
-using ContainerVervoerWinFormFramework.Managers;
-using ContainerVervoerWinFormFramework.Ships.Containers.Enums;
 using ContainerVervoerWinFormFramework.Ships.Containers;
+
+using ContainerVervoerWinFormFramework.IOManagers;
+using ContainerVervoerWinFormFramework.Ships.Containers.Enums;
 
 namespace ContainerVervoerWinFormFramework
 {
     public partial class Form1 : Form
     {
-        private IList<IContainer> containerList = new List<IContainer>();
-        private int width, height, maxCapacity, containerCapacity;
-        ContainerType type;
+        private readonly IList<IContainer> _containerList = new List<IContainer>();
+        private int _width, _height, _maxCapacity, _containerCapacity;
+        ContainerType _type;
         public Form1()
         {
             InitializeComponent();
+            containerCapacityTb.MaxLength = 5;
+            containerCapacityTb.Text = "0";
+            shipWidthTb.Text = "0";
+            shipHeightTb.Text = "0";
+            maxCapacityTb.Text = "0";
+            containerTypeCb.SelectedIndex = 0;
         }
 
         private void ForceNumeral(object sender, KeyPressEventArgs e)
@@ -36,37 +42,37 @@ namespace ContainerVervoerWinFormFramework
         {
             foreach (IContainer container in containers.Items)
             {
-                containerList.Add(container);
+                _containerList.Add(container);
             }
-            return containerList;
+            return _containerList;
         }
         internal IContainer SetContainer()
         {
             //containerCapacity = Convert.ToInt32(containerCapacityTb.Text);
-            if (String.IsNullOrEmpty(containerCapacityTb.Text))
+            if (string.IsNullOrEmpty(containerCapacityTb.Text))
             {
-                containerCapacity = 0;
+                _containerCapacity = 0;
             }
             else
             {
-                containerCapacity = Convert.ToInt32(containerCapacityTb.Text);
+                if (Convert.ToInt32(containerCapacityTb.Text) > new Container().MaxCapacity)
+                    MessageBox.Show("Capacity can't be more than 260000");
+                else
+                    _containerCapacity = Convert.ToInt32(containerCapacityTb.Text);
             }
             switch (containerTypeCb.SelectedItem.ToString())
             {
                 case "Normal":
-                    type = ContainerType.Normal;
+                    _type = ContainerType.Normal;
                     break;
                 case "Valuable":
-                    type = ContainerType.Valuable;
+                    _type = ContainerType.Valuable;
                     break;
                 case "Cooled":
-                    type = ContainerType.Cooled;
-                    break;
-                case "CooledAndValuable":
-                    type = ContainerType.CoolableAndValuable;
+                    _type = ContainerType.Cooled;
                     break;
             }
-            return new Container(containerCapacity, type);
+            return new Container(_containerCapacity, _type);
         }
 
         private void AddToList_Click(object sender, EventArgs e)
@@ -80,22 +86,22 @@ namespace ContainerVervoerWinFormFramework
         {
             if (String.IsNullOrEmpty(shipWidthTb.Text) && String.IsNullOrEmpty(shipHeightTb.Text) && String.IsNullOrEmpty(maxCapacityTb.Text))
             {
-                width = 0;
-                height = 0;
-                maxCapacity = 0;
+                _width = 0;
+                _height = 0;
+                _maxCapacity = 0;
             }
             else
             {
-                width = Convert.ToInt32(shipWidthTb.Text);
-                height = Convert.ToInt32(shipHeightTb.Text);
-                maxCapacity = Convert.ToInt32(maxCapacityTb.Text);
+                _width = Convert.ToInt32(shipWidthTb.Text);
+                _height = Convert.ToInt32(shipHeightTb.Text);
+                _maxCapacity = Convert.ToInt32(maxCapacityTb.Text);
             }
-            return new Ship(width, height, maxCapacity, containerList);
+            return new Ship(_width, _height, _maxCapacity, _containerList);
         }
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            IInputManager input = new InputManager(SetContainerList(), SetShip());
+            InputManager.ParseToDistributor(SetShip(), SetContainerList());
         }
     }
 }

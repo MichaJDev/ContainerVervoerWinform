@@ -2,7 +2,6 @@
 {
     public enum ContainerType
     {
-        CoolableAndValuable,
         Valuable,
         Cooled,
         Normal
