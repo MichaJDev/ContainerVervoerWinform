@@ -120,10 +120,10 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
         {
             int x = 0;
             int l = 0;
-            int[] list = new int[Ship.Width];
+            int[] placeOrder = new int[Ship.Width];
             for (int i = 0; i < Ship.Width; i += 2)
             {
-                list[i] = x;
+                placeOrder[i] = x;
                 x++;
 
             }
@@ -137,17 +137,17 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
             }
             for (int i = l; i >= 0; i -= 2)
             {
-                list[i] = x;
+                placeOrder[i] = x;
                 x--;
             }
             int nextIndex = nextXPosition + 1;
             if (nextIndex >= 0 && nextIndex < Ship.Width)
             {
-                nextXPosition = list[nextXPosition + 1];
+                nextXPosition = placeOrder[nextXPosition + 1];
             }
             else
             {
-                nextXPosition = list[0];
+                nextXPosition = placeOrder[0];
                 nextYPosition += 1;
                 if (nextYPosition >= Ship.Length)
                 {
