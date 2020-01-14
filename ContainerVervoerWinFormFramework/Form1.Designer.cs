@@ -41,8 +41,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.containers = new System.Windows.Forms.ListBox();
             this.Submit = new System.Windows.Forms.Button();
-            this.maxCapacityTb = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.AddToList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -166,22 +164,6 @@
             this.Submit.UseVisualStyleBackColor = true;
             this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
-            // maxCapacityTb
-            // 
-            this.maxCapacityTb.Location = new System.Drawing.Point(111, 99);
-            this.maxCapacityTb.Name = "maxCapacityTb";
-            this.maxCapacityTb.Size = new System.Drawing.Size(72, 20);
-            this.maxCapacityTb.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 102);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "MaxCapacity";
-            // 
             // AddToList
             // 
             this.AddToList.Location = new System.Drawing.Point(131, 204);
@@ -198,8 +180,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 233);
             this.Controls.Add(this.AddToList);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.maxCapacityTb);
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.containers);
             this.Controls.Add(this.label5);
@@ -238,8 +218,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox containers;
         private System.Windows.Forms.Button Submit;
-        private System.Windows.Forms.TextBox maxCapacityTb;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button AddToList;
     }
 }

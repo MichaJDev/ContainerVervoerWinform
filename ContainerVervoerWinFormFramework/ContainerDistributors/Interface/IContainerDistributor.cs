@@ -6,7 +6,7 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors.Interface
 {
     public interface IContainerDistributor
     {
-        bool Distribute();
+        IShip Distribute();
         int LeftSideWeight { get; }
         int RightSideWeight { get; }
     }

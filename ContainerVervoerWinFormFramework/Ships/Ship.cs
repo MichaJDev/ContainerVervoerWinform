@@ -8,7 +8,7 @@ namespace ContainerVervoerWinFormFramework.Ships
 {
     public class Ship : IShip
     {
-        public ISlot[,] Grid { get { return CreateContainerGrid(Width, Length); } }
+        public ISlot[,] Grid { get;  }
         public int Width { get; private set; }
         public int Length { get; private set; }
         public int MaxCapacity { get; private set; }
@@ -20,8 +20,9 @@ namespace ContainerVervoerWinFormFramework.Ships
             Length = height;
             MaxCapacity = maxCapacity;
             Containers = containers;
-            CreateContainerGrid(Width, Length);
+            Grid = CreateContainerGrid(Width, Length);
         }
+
         private ISlot[,] CreateContainerGrid(int width, int length)
         {
             ISlot[,] containerSlotGrid = new ISlot[width, length];

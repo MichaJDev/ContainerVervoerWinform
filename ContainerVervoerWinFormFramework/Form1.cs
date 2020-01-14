@@ -23,7 +23,8 @@ namespace ContainerVervoerWinFormFramework
             containerCapacityTb.Text = "0";
             shipWidthTb.Text = "0";
             shipHeightTb.Text = "0";
-            maxCapacityTb.Text = "0";
+            
+            
             containerTypeCb.SelectedIndex = 0;
         }
 
@@ -84,17 +85,16 @@ namespace ContainerVervoerWinFormFramework
 
         internal IShip SetShip()
         {
-            if (String.IsNullOrEmpty(shipWidthTb.Text) && String.IsNullOrEmpty(shipHeightTb.Text) && String.IsNullOrEmpty(maxCapacityTb.Text))
+            if (String.IsNullOrEmpty(shipWidthTb.Text) && String.IsNullOrEmpty(shipHeightTb.Text))
             {
                 _width = 0;
                 _height = 0;
-                _maxCapacity = 0;
             }
             else
             {
                 _width = Convert.ToInt32(shipWidthTb.Text);
                 _height = Convert.ToInt32(shipHeightTb.Text);
-                _maxCapacity = Convert.ToInt32(maxCapacityTb.Text);
+                _maxCapacity = (_width * _height) * 150000;
             }
             return new Ship(_width, _height, _maxCapacity, _containerList);
         }
