@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,8 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContainerDistributors\ContainerDistributor.cs" />
     <Compile Include="ContainerDistributors\Interface\IContainerDistributor.cs" />
-    <Compile Include="ShipRuleTest\IDistributor.cs" />
-    <Compile Include="ShipRuleTest\ShipRuleTester.cs" />
+    <Compile Include="ShipRules\ShipRuleTester.cs" />
     <Compile Include="Ships\Containers\Container.cs" />
     <Compile Include="Ships\Containers\Enums\ContainerType.cs" />
     <Compile Include="Ships\Containers\Interface\IContainer.cs" />

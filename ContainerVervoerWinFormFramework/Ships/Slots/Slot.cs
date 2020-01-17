@@ -8,7 +8,7 @@ namespace ContainerVervoerWinForm.Ships.Slots
     public class Slot : ISlot
     {
 
-        public IList<IContainer> Stack { get; private set; }
+        public IList<IContainer> Stack { get; set; }
 
         public IContainer ValuableContainer { get; private set; }
 

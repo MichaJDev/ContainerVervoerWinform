@@ -1,0 +1,92 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework.Tests\\ContainerVervoerWinFormFramework.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework.Tests\\ContainerVervoerWinFormFramework.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework.Tests\\ContainerVervoerWinFormFramework.Tests.csproj",
+        "projectName": "ContainerVervoerWinFormFramework.Tests",
+        "projectPath": "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework.Tests\\ContainerVervoerWinFormFramework.Tests.csproj",
+        "packagesPath": "C:\\Users\\xflak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\xflak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework\\ContainerVervoerWinFormFramework.csproj": {
+                "projectPath": "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework\\ContainerVervoerWinFormFramework.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework\\ContainerVervoerWinFormFramework.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework\\ContainerVervoerWinFormFramework.csproj",
+        "projectName": "ContainerVervoerWinFormFramework",
+        "projectPath": "C:\\Users\\xflak\\RiderProjects\\CircusTrein\\ContainerVervoerWinform\\ContainerVervoerWinFormFramework\\ContainerVervoerWinFormFramework.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

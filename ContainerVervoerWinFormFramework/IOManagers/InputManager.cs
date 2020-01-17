@@ -3,7 +3,7 @@ using ContainerVervoerWinFormFramework.Ships.Interface;
 using System.Collections.Generic;
 using ContainerVervoerWinFormFramework.ContainerDistributors.Interface;
 using ContainerVervoerWinFormFramework.ContainerDistributors;
-using ContainerVervoerWinFormFramework.ShipRuleTest;
+using ContainerVervoerWinFormFramework.ShipRules;
 
 namespace ContainerVervoerWinFormFramework.IOManagers
 {
