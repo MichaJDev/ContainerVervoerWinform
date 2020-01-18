@@ -16,7 +16,6 @@ C:\Users\xflak\RiderProjects\CircusTrein\ContainerVervoerWinform\ContainerVervoe
 C:\Users\xflak\RiderProjects\CircusTrein\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.csproj.GenerateResource.cache
 C:\Users\xflak\RiderProjects\CircusTrein\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.exe
 C:\Users\xflak\RiderProjects\CircusTrein\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.pdb
-C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.csprojAssemblyReference.cache
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.Form1.resources
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.Properties.Resources.resources
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.csproj.GenerateResource.cache
@@ -25,3 +24,4 @@ C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormF
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\bin\Debug\ContainerVervoerWinFormFramework.exe.config
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\bin\Debug\ContainerVervoerWinFormFramework.exe
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\bin\Debug\ContainerVervoerWinFormFramework.pdb
+C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.OutputForm.resources

@@ -68,9 +68,9 @@
             this.shipHeight.AutoSize = true;
             this.shipHeight.Location = new System.Drawing.Point(22, 76);
             this.shipHeight.Name = "shipHeight";
-            this.shipHeight.Size = new System.Drawing.Size(38, 13);
+            this.shipHeight.Size = new System.Drawing.Size(40, 13);
             this.shipHeight.TabIndex = 2;
-            this.shipHeight.Text = "Height";
+            this.shipHeight.Text = "Length";
             // 
             // shipWidthTb
             // 
@@ -94,9 +94,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 24);
+            this.label2.Size = new System.Drawing.Size(143, 24);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Container";
+            this.label2.Text = "Add a container";
             // 
             // containerCapacityTb
             // 

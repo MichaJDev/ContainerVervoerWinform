@@ -9,17 +9,13 @@ namespace ContainerVervoerWinFormFramework.IOManagers
 {
     class InputManager
     {
-        public static IShip ParseToDistributor(IShip ship, IList<IContainer> containers)
+        public bool Error { get; private set; }
+        public IShip ParseToDistributor(IShip ship, IList<IContainer> containers)
         {
             IContainerDistributor distributor = new ContainerDistributor(ship, containers);
-            IShip iShip =  distributor.Distribute();
-
-            ShipRuleTester test = new ShipRuleTester(ship, distributor, containers);
-            bool error = test.TestMaximumWeight() || test.TestMinimumWeight() || test.TestBalance() || test.TestSlotWeightMaxCapacity() || test.TestContainersLeftOver();
-            if (error)
-            {
-                return null;
-            }
+            IShip iShip = distributor.Distribute();
+            ShipRuleTester test = new ShipRuleTester(iShip, distributor);
+            Error = (test.TestMaximumWeight() ||test.TestMinimumWeight() || test.TestBalance() || test.TestSlotWeightMaxCapacity() || test.TestContainersLeftOver());
             return iShip;
         }
 

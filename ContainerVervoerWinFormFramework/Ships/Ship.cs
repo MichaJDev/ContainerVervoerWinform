@@ -2,7 +2,7 @@
 using ContainerVervoerWinFormFramework.Ships.Interface;
 using System.Collections.Generic;
 using ContainerVervoerWinFormFramework.Ships.Slots.Interface;
-
+using ContainerVervoerWinForm.Ships.Slots;
 
 namespace ContainerVervoerWinFormFramework.Ships
 {
@@ -25,20 +25,23 @@ namespace ContainerVervoerWinFormFramework.Ships
 
         private ISlot[,] CreateContainerGrid(int width, int length)
         {
+
             ISlot[,] containerSlotGrid = new ISlot[width, length];
-            //for (int x = 1; x < width; x++)
-            //{
-            //    for (int y = 1; y < length; y++)
-            //    {
-            //        if (containerSlotGrid[x, y].Stack.Count >  0)
-            //        {
-            //            containerSlotGrid[x, y].Stack.Clear();
-            //        }
-                    
-            //    }
-            //}
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < length; y++)
+                {
+                    IList<IContainer> emptyStackList = new List<IContainer>();
+                    containerSlotGrid[x, y] = new Slot(emptyStackList);
+                    containerSlotGrid[x, y].Stack.Clear();
+                }
+            }
             return containerSlotGrid;
 
+        }
+        public string ShipString()
+        {
+            return "SHIP";
         }
     }
 }

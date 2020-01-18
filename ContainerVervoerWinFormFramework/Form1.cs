@@ -16,15 +16,16 @@ namespace ContainerVervoerWinFormFramework
         private readonly IList<IContainer> _containerList = new List<IContainer>();
         private int _width, _height, _maxCapacity, _containerCapacity;
         ContainerType _type;
+        InputManager input = new InputManager();
+
+        OutputForm output;
+
         public Form1()
         {
             InitializeComponent();
             containerCapacityTb.MaxLength = 5;
-            containerCapacityTb.Text = "0";
             shipWidthTb.Text = "0";
             shipHeightTb.Text = "0";
-            
-            
             containerTypeCb.SelectedIndex = 0;
         }
 
@@ -101,7 +102,13 @@ namespace ContainerVervoerWinFormFramework
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            InputManager.ParseToDistributor(SetShip(), SetContainerList());
+
+            IShip ship = input.ParseToDistributor(SetShip(), SetContainerList());
+            output = new OutputForm();
+
+            output.SetErrorLabel(input.Error, ship);
+            this.Hide();
+            output.Show();
         }
     }
 }

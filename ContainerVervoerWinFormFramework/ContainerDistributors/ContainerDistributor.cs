@@ -14,14 +14,14 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
 {
     public class ContainerDistributor : IContainerDistributor
     {
-        private IList<IContainer> Containers { get; set; }
+        public IList<IContainer> Containers { get; private set; }
         private IShip Ship { get; set; }
         private bool IsOdd { get { return Ship.Width % 2 == 1; } }
         public int LeftSideWeight { get; private set; }
         public int RightSideWeight { get; private set; }
         private int[] WidthPlacementOrder { get; set; }
 
-        private int nextXPosition, nextYPosition, nextZPosition;
+        private int nextXPosition, nextYPosition;
         public ContainerDistributor(IShip ship, IList<IContainer> containers)
         {
             Containers = containers;
@@ -29,40 +29,42 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
             WidthPlacementOrder = InitWidthPlaceOrder();
             nextXPosition = WidthPlacementOrder[0];
             nextYPosition = 0;
-            nextZPosition = 0;
             LeftSideWeight = 0;
             RightSideWeight = 0;
         }
         public IShip Distribute()
         {
             IList<IContainer> sortedContainers = SortContainers(Containers);
-            bool error = false; while (!error && (HasCoolableContainers(Containers) || HasNormalContainers(Containers)))
+            bool error = false;
+
+            while (!error && (HasCoolableContainers(sortedContainers) || HasNormalContainers(sortedContainers)))
             {
-                int curZPos = nextZPosition;
-                foreach (IContainer container in sortedContainers)
+                for (int i = 0; i < sortedContainers.Count; i++)
                 {
-                    if ((IsCoolable(container) && nextYPosition == 0) || (!IsCoolable(container) && !IsValuable(container)))
+                    if ((IsCoolable(sortedContainers[i]) && nextYPosition == 0) || (!IsCoolable(sortedContainers[i]) && !IsValuable(sortedContainers[i])))
                     {
 
-                        Ship.Grid[nextXPosition, nextYPosition].Stack.Add(container);
-                        AddWeightToShipSide(container.Weight, nextXPosition);
-                        Containers.Remove(container);
+                        Ship.Grid[nextXPosition, nextYPosition].Stack.Add(sortedContainers[i]);
+                        AddWeightToShipSide(sortedContainers[i].Weight, nextXPosition);
+                        sortedContainers.Remove(sortedContainers[i]);
                         CalculateNextPosition();
+                        i--;
                     }
                 }
             }
 
             nextXPosition = 0;
             nextYPosition = 0;
-            foreach (IContainer container in Containers)
+            for (int j = 0; j < sortedContainers.Count; j++)
             {
 
                 nextXPosition = WidthPlacementOrder[0];
                 nextYPosition = Ship.Length - 1;
 
-                Ship.Grid[nextXPosition, nextYPosition].Stack.Add(container);
-                AddWeightToShipSide(container.Weight, nextXPosition);
-                Containers.Remove(container);
+                Ship.Grid[nextXPosition, nextYPosition].Stack.Add(sortedContainers[j]);
+                AddWeightToShipSide(sortedContainers[j].Weight, nextXPosition);
+                sortedContainers.Remove(sortedContainers[j]);
+                j--;
 
                 int nextIndex = -1;
                 for (int i = 0; i < Ship.Width && nextIndex < 0; i++)
@@ -87,6 +89,7 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
                     nextXPosition = WidthPlacementOrder[nextIndex];
                 }
             }
+            Containers = sortedContainers;
             return Ship;
         }
 
@@ -114,7 +117,7 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
         private bool HasCoolableContainers(IList<IContainer> containers)
         {
             int coolableContainers = 0;
-            foreach (IContainer container in Containers)
+            foreach (IContainer container in containers)
             {
                 if (container.Type == ContainerType.Cooled)
                 {
@@ -126,7 +129,7 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
         private bool HasNormalContainers(IList<IContainer> containers)
         {
             int normalContainers = 0;
-            foreach (IContainer container in Containers)
+            foreach (IContainer container in containers)
             {
                 if (container.Type == ContainerType.Normal)
                 {
@@ -151,7 +154,7 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
             }
             if (nextIndex >= 0 && nextIndex < Ship.Width)
             {
-                nextXPosition = WidthPlacementOrder[nextXPosition + 1];
+                nextXPosition = WidthPlacementOrder[nextIndex];
             }
             else
             {
@@ -160,7 +163,6 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
                 if (nextYPosition >= Ship.Length)
                 {
                     nextYPosition = 0;
-                    nextZPosition += 1;
                 }
             }
         }
@@ -194,25 +196,24 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
         {
             int middle = -1;
             int leftMax = 0;
-            int rightMin = 0;
+
             if (IsOdd)
             {
                 middle = (Ship.Width - 1) / 2;
                 leftMax = middle - 1;
-                rightMin = middle + 1;
+
             }
             else
             {
                 middle = -1;
                 leftMax = Ship.Width / 2;
-                rightMin = leftMax + 1;
             }
             if (xPos == middle)
             {
                 LeftSideWeight += containerWeight / 2;
                 RightSideWeight += containerWeight / 2;
             }
-            else if (xPos <= leftMax)
+            else if (xPos < leftMax)
             {
                 LeftSideWeight += containerWeight;
             }
@@ -221,9 +222,5 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors
                 RightSideWeight += containerWeight;
             }
         }
-        /*
-         *  Ship Balancing Mechanism 
-         */
     }
-
 }

@@ -14,7 +14,7 @@ namespace ContainerVervoerWinForm.Ships.Slots
 
         public bool IsEmpty { get { return Stack.Count == 0; } }
         public int StackWeight => CalculateStackWeight();
-        public Slot(List<IContainer> containers)
+        public Slot(IList<IContainer> containers)
         {
             Stack = containers;
         }

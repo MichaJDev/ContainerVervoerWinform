@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ContainerVervoerWinFormFramework.ContainerDistributors.Interface;
 using ContainerVervoerWinFormFramework.Ships.Containers.Interface;
 using ContainerVervoerWinFormFramework.Ships.Interface;
@@ -14,17 +15,17 @@ namespace ContainerVervoerWinFormFramework.ShipRules
         private IList<IContainer> Containers { get; }
         private IContainerDistributor Distributor { get; set; }
 
-        public ShipRuleTester(IShip ship, IContainerDistributor distributor, IList<IContainer> containers)
+        public ShipRuleTester(IShip ship, IContainerDistributor distributor)
         {
             Ship = ship;
             Distributor = distributor;
-            Containers = containers;
+            Containers = distributor.Containers;
         }
 
         public bool TestMinimumWeight()
         {
             bool error = GetGridWeight() < (Ship.MaxCapacity / 2);
-
+            
             return error;
         }
 
@@ -40,8 +41,8 @@ namespace ContainerVervoerWinFormFramework.ShipRules
         public bool TestBalance()
         {
             bool error = false;
-            int balance = Distributor.LeftSideWeight / (Distributor.LeftSideWeight + Distributor.RightSideWeight);
-            if (balance < 40 || balance > 60)
+            float balance = (float)Distributor.LeftSideWeight / ((float)Distributor.LeftSideWeight + (float)Distributor.RightSideWeight);
+            if (balance < 0.4f || balance > 0.6f)
             {
                 error = true;
             }
@@ -74,14 +75,7 @@ namespace ContainerVervoerWinFormFramework.ShipRules
 
         private int GetGridWeight()
         {
-            int gridWeight = 0;
-            for (int x = 0; x < Ship.Width; x++)
-            {
-                for (int y = 0; y < Ship.Length; y++)
-                {
-                    gridWeight += Ship.Grid[x, y].StackWeight;
-                }
-            }
+            int gridWeight = Distributor.LeftSideWeight + Distributor.RightSideWeight;
             return gridWeight;
         }
 

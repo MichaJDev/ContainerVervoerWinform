@@ -9,5 +9,6 @@ namespace ContainerVervoerWinFormFramework.ContainerDistributors.Interface
         IShip Distribute();
         int LeftSideWeight { get; }
         int RightSideWeight { get; }
+        IList<IContainer> Containers { get; }
     }
 }

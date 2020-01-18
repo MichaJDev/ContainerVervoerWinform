@@ -13,6 +13,7 @@ namespace ContainerVervoerWinFormFramework.Ships.Interface
         int Length { get; }
         int MaxCapacity { get; }
         IList<IContainer> Containers { get; }
+        string ShipString();
 
     }
 }
