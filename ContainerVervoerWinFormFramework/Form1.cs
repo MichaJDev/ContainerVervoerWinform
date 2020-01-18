@@ -16,7 +16,7 @@ namespace ContainerVervoerWinFormFramework
         private readonly IList<IContainer> _containerList = new List<IContainer>();
         private int _width, _height, _maxCapacity, _containerCapacity;
         ContainerType _type;
-        InputManager input = new InputManager();
+        readonly InputManager input = new InputManager();
 
         OutputForm output;
 
@@ -106,7 +106,7 @@ namespace ContainerVervoerWinFormFramework
             IShip ship = input.ParseToDistributor(SetShip(), SetContainerList());
             output = new OutputForm();
 
-            output.SetErrorLabel(input.Error, ship);
+             output.PrintResult(input.Error,input.Reason, ship);;
             this.Hide();
             output.Show();
         }

@@ -25,3 +25,4 @@ C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormF
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\bin\Debug\ContainerVervoerWinFormFramework.exe
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\bin\Debug\ContainerVervoerWinFormFramework.pdb
 C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.OutputForm.resources
+C:\Users\xflak\Documents\GitHub\ContainerVervoerWinform\ContainerVervoerWinFormFramework\obj\Debug\ContainerVervoerWinFormFramework.csprojAssemblyReference.cache
